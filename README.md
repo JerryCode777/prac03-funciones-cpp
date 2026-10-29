@@ -55,7 +55,7 @@ Cada archivo tiene un bloque `TODO` con las indicaciones exactas. **No modifique
 
 ### Checklist por integrante
 - [ ] **Elkin:** 3 funciones `inline` · lectura de medidas · menú (reto) · resultados con 2 decimales · *(extra)* rechazar medidas negativas.
-- [ ] **Fernando:** `calcularDescuento` y `precioConDescuento` (inline) · `filtrarPorPrecio` con `std::copy_if` + lambda · `ordenarPorPrecio` con `std::sort` + lambda.
+- [x] **Fernando:** `calcularDescuento` y `precioConDescuento` (inline) · `filtrarPorPrecio` con `std::copy_if` + lambda · `ordenarPorPrecio` con `std::sort` + lambda.
 - [ ] **Gabriel:** getters `const` · `mostrarDatos() const` · `setPrecio` (no negativo) · `compararPrecios` (friend, accede a `precio_` directamente) · captura del error de compilación al modificar un atributo dentro de una función `const`.
 - [ ] **Diego:** `operator+` (paquete con precios y cantidades sumados) · `operator<<` con el formato `[P001] Teclado mecánico | S/ 150.00 | stock: 10`.
 - [ ] **Todos:** tomar las **capturas** de su parte según [`docs/pruebas.md`](docs/pruebas.md) y subirlas a `docs/capturas/`.
