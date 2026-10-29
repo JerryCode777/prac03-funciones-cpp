@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Curso** | Tecnología de Objetos |
-| **Docente** | [COMPLETAR] |
+| **Docente** | Mg. Maribel Molina Barriga |
 | **Lenguaje** | C++17 |
 | **Entregables** | Práctica 1 (Áreas con funciones inline) · Sistema de Productos (todos los grupos) · Informe APA |
 
