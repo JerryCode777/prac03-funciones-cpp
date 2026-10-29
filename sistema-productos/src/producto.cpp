@@ -1,30 +1,43 @@
 #include "producto.h"
 
+#include <iomanip>
 #include <iostream>
 
 // Responsable: Gabriel
-// TODO:
-//   - Getters: devolver el atributo correspondiente (codigo_, nombre_, precio_, cantidad_).
-//   - mostrarDatos() const: imprimir código, nombre, precio (2 decimales) y stock, uno por línea.
-//     Probar que, si dentro de una función const se escribe  precio_ = 0;  el compilador da error
-//     y luego borrar esa línea.
-//   - setPrecio: si precio < 0 devolver false sin cambiar nada; si no, asignarlo y devolver true.
-//   - compararPrecios (friend): comparar a.precio_ con b.precio_ directamente, sin usar getPrecio().
+const std::string& Producto::getCodigo() const { return codigo_; }
 
-namespace {
-const std::string kPendiente = "[pendiente]";
+const std::string& Producto::getNombre() const { return nombre_; }
+
+double Producto::getPrecio() const { return precio_; }
+
+int Producto::getCantidad() const { return cantidad_; }
+
+void Producto::mostrarDatos() const {
+    const auto formato = std::cout.flags();
+    const auto precision = std::cout.precision();
+    std::cout << "Código: " << codigo_ << '\n'
+              << "Nombre: " << nombre_ << '\n'
+              << "Precio: S/ " << std::fixed << std::setprecision(2) << precio_ << '\n'
+              << "Stock: " << cantidad_ << '\n';
+    std::cout.flags(formato);
+    std::cout.precision(precision);
 }
 
-const std::string& Producto::getCodigo() const { return kPendiente; }
+bool Producto::setPrecio(double precio) {
+    if (precio < 0) {
+        return false;
+    }
+    precio_ = precio;
+    return true;
+}
 
-const std::string& Producto::getNombre() const { return kPendiente; }
-
-double Producto::getPrecio() const { return 0.0; }
-
-int Producto::getCantidad() const { return 0; }
-
-void Producto::mostrarDatos() const { std::cout << "[pendiente: mostrarDatos]\n"; }
-
-bool Producto::setPrecio([[maybe_unused]] double precio) { return false; }
-
-int compararPrecios([[maybe_unused]] const Producto& a, [[maybe_unused]] const Producto& b) { return 0; }
+// La declaración friend permite consultar los atributos privados directamente.
+int compararPrecios(const Producto& a, const Producto& b) {
+    if (a.precio_ > b.precio_) {
+        return 1;
+    }
+    if (a.precio_ < b.precio_) {
+        return -1;
+    }
+    return 0;
+}
