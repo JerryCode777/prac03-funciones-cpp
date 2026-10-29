@@ -56,9 +56,9 @@ Cada archivo tiene un bloque `TODO` con las indicaciones exactas. **No modifique
 ### Checklist por integrante
 - [ ] **Elkin:** 3 funciones `inline` · lectura de medidas · menú (reto) · resultados con 2 decimales · *(extra)* rechazar medidas negativas.
 - [ ] **Fernando:** `calcularDescuento` y `precioConDescuento` (inline) · `filtrarPorPrecio` con `std::copy_if` + lambda · `ordenarPorPrecio` con `std::sort` + lambda.
-- [ ] **Gabriel:** getters `const` · `mostrarDatos() const` · `setPrecio` (no negativo) · `compararPrecios` (friend, accede a `precio_` directamente) · captura del error de compilación al modificar un atributo dentro de una función `const`.
+- [ ] **Gabriel:** getters `const` · `mostrarDatos() const` · `setPrecio` (no negativo) · `compararPrecios` (friend, accede a `precio_` directamente) · comprobar que el compilador da error si se modifica un atributo dentro de una función `const`.
 - [ ] **Diego:** `operator+` (paquete con precios y cantidades sumados) · `operator<<` con el formato `[P001] Teclado mecánico | S/ 150.00 | stock: 10`.
-- [ ] **Todos:** tomar las **capturas** de su parte según [`docs/pruebas.md`](docs/pruebas.md) y subirlas a `docs/capturas/`.
+- [ ] **Todos:** verificar que la salida de su parte coincida con el **resultado esperado** de [`docs/pruebas.md`](docs/pruebas.md). No hace falta tomar capturas: ya están en el informe.
 
 ## Estructura del repositorio
 
@@ -78,8 +78,7 @@ prac03-funciones-cpp/
 │       └── filtros.cpp        Lambdas (Fernando)
 ├── docs/
 │   ├── conceptos.md           Dónde se aplica cada concepto
-│   ├── pruebas.md             Casos de prueba
-│   └── capturas/              Evidencias de ejecución
+│   └── pruebas.md             Casos de prueba
 ├── informe/                   Informe en formato APA (.docx)
 └── Makefile
 ```
@@ -191,7 +190,7 @@ Luego abran un **Pull Request** hacia `main`. Antes de abrirlo, verifiquen que `
 ## Entrega
 - Código completo en `main`.
 - Conceptos aplicados: [`docs/conceptos.md`](docs/conceptos.md).
-- Casos de prueba y capturas: [`docs/pruebas.md`](docs/pruebas.md), [`docs/capturas/`](docs/capturas/).
+- Casos de prueba: [`docs/pruebas.md`](docs/pruebas.md).
 - Informe en formato APA: [`informe/`](informe/).
 
 ## Integrantes

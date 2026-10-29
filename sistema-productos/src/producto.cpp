@@ -7,7 +7,7 @@
 //   - Getters: devolver el atributo correspondiente (codigo_, nombre_, precio_, cantidad_).
 //   - mostrarDatos() const: imprimir código, nombre, precio (2 decimales) y stock, uno por línea.
 //     Probar que, si dentro de una función const se escribe  precio_ = 0;  el compilador da error
-//     (captura para el informe) y luego borrar esa línea.
+//     y luego borrar esa línea.
 //   - setPrecio: si precio < 0 devolver false sin cambiar nada; si no, asignarlo y devolver true.
 //   - compararPrecios (friend): comparar a.precio_ con b.precio_ directamente, sin usar getPrecio().
 
