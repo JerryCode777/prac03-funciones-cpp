@@ -57,7 +57,7 @@ Cada archivo tiene un bloque `TODO` con las indicaciones exactas. **No modifique
 - [ ] **Elkin:** 3 funciones `inline` · lectura de medidas · menú (reto) · resultados con 2 decimales · *(extra)* rechazar medidas negativas.
 - [x] **Fernando:** `calcularDescuento` y `precioConDescuento` (inline) · `filtrarPorPrecio` con `std::copy_if` + lambda · `ordenarPorPrecio` con `std::sort` + lambda.
 - [ ] **Gabriel:** getters `const` · `mostrarDatos() const` · `setPrecio` (no negativo) · `compararPrecios` (friend, accede a `precio_` directamente) · comprobar que el compilador da error si se modifica un atributo dentro de una función `const`.
-- [ ] **Diego:** `operator+` (paquete con precios y cantidades sumados) · `operator<<` con el formato `[P001] Teclado mecánico | S/ 150.00 | stock: 10`.
+- [x] **Diego:** `operator+` (paquete con precios y cantidades sumados) · `operator<<` con el formato `[P001] Teclado mecánico | S/ 150.00 | stock: 10`.
 - [ ] **Todos:** verificar que la salida de su parte coincida con el **resultado esperado** de [`docs/pruebas.md`](docs/pruebas.md). No hace falta tomar capturas: ya están en el informe.
 
 ## Estructura del repositorio
