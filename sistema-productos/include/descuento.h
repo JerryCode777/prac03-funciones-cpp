@@ -5,15 +5,15 @@
 // Funciones inline: van en el .h porque el compilador necesita ver el cuerpo
 // en cada lugar donde se llaman para poder reemplazar la llamada.
 
-// TODO: devolver el monto del descuento: precio * porcentaje / 100.
-//       Si el porcentaje está fuera de 0..100, devolver 0.
-inline double calcularDescuento([[maybe_unused]] double precio, [[maybe_unused]] double porcentaje) {
-    return 0.0;
+inline double calcularDescuento(double precio, double porcentaje) {
+    if (porcentaje < 0.0 || porcentaje > 100.0) {
+        return 0.0;
+    }
+    return precio * porcentaje / 100.0;
 }
 
-// TODO: devolver precio - calcularDescuento(precio, porcentaje).
-inline double precioConDescuento([[maybe_unused]] double precio, [[maybe_unused]] double porcentaje) {
-    return 0.0;
+inline double precioConDescuento(double precio, double porcentaje) {
+    return precio - calcularDescuento(precio, porcentaje);
 }
 
 #endif
