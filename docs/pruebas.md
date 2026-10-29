@@ -3,7 +3,7 @@
 Cada integrante ejecuta los casos de su parte y verifica que su salida coincida con el **resultado esperado**.
 
 | ID | Parte | Entrada | Resultado esperado | Resultado |
-|----|-------|---------|--------------------|-----------|---------|
+|----|-------|---------|--------------------|-----------|
 | P1-01 | Práctica 1 | Cuadrado, lado 4 | Área 16.00 | |
 | P1-02 | Práctica 1 | Rectángulo, base 5, altura 3 | Área 15.00 | |
 | P1-03 | Práctica 1 | Círculo, radio 2 | Área 12.57 | |
