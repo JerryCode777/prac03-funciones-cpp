@@ -1,19 +1,29 @@
 #include "producto.h"
+#include <iomanip>
 
 // Responsable: Diego
-// TODO:
-//   - operator+: devolver un Producto con
-//       codigo   = a.codigo_ + "+" + b.codigo_
-//       nombre   = a.nombre_ + " + " + b.nombre_
-//       precio   = a.precio_ + b.precio_
-//       cantidad = a.cantidad_ + b.cantidad_
-//   - operator<<: escribir en `os` el formato  [P001] Teclado mecánico | S/ 150.00 | stock: 10
-//     (std::fixed y std::setprecision(2) de <iomanip>) y devolver `os` para poder encadenar.
 
-Producto operator+([[maybe_unused]] const Producto& a, [[maybe_unused]] const Producto& b) {
-    return Producto("[pendiente]", "[pendiente: operator+]");
+Producto operator+(const Producto& a, const Producto& b) {
+    return Producto(
+        a.codigo_ + "+" + b.codigo_,
+        a.nombre_ + " + " + b.nombre_,
+        a.precio_ + b.precio_,
+        a.cantidad_ + b.cantidad_
+    );
 }
 
-std::ostream& operator<<(std::ostream& os, [[maybe_unused]] const Producto& producto) {
-    return os << "[pendiente: operator<<]";
+std::ostream& operator<<(std::ostream& os, const Producto& producto) {
+    // Guardar el estado actual de los flags de formato de os
+    std::ios state(nullptr);
+    state.copyfmt(os);
+
+    os << "[" << producto.codigo_ << "] "
+       << producto.nombre_ << " | S/ "
+       << std::fixed << std::setprecision(2) << producto.precio_
+       << " | stock: " << producto.cantidad_;
+
+    // Restaurar el estado anterior de os para no alterar flujos externos
+    os.copyfmt(state);
+
+    return os;
 }
