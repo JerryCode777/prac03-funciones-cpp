@@ -13,6 +13,7 @@
 
 namespace {
 
+// Catálogo de ejemplo con el que arranca el sistema.
 std::vector<Producto> catalogoInicial() {
     return {
         {"P001", "Teclado mecánico", 150.0, 10},
@@ -33,6 +34,7 @@ std::string leerLinea(const std::string& mensaje) {
     return linea;
 }
 
+// Pide un número hasta que sea válido: usa std::stod y verifica que no sobren caracteres.
 double leerReal(const std::string& mensaje) {
     while (true) {
         std::string texto = leerLinea(mensaje);
@@ -49,6 +51,7 @@ double leerReal(const std::string& mensaje) {
     }
 }
 
+// Pide el número de un producto (1..N) y devuelve su posición en el vector (0..N-1).
 std::size_t elegirProducto(const std::vector<Producto>& catalogo, const std::string& mensaje) {
     const std::string rango = " (1-" + std::to_string(catalogo.size()) + "): ";
     while (true) {
@@ -60,6 +63,7 @@ std::size_t elegirProducto(const std::vector<Producto>& catalogo, const std::str
     }
 }
 
+// Muestra cada producto con el operador << sobrecargado.
 void listar(const std::vector<Producto>& productos) {
     if (productos.empty()) {
         std::cout << "No hay productos para mostrar.\n";
@@ -74,6 +78,7 @@ void verDetalle(const std::vector<Producto>& catalogo) {
     catalogo[elegirProducto(catalogo, "Producto")].mostrarDatos();  // función const
 }
 
+// compararPrecios es friend: compara precio_ directamente, sin getters.
 void comparar(const std::vector<Producto>& catalogo) {
     const Producto& a = catalogo[elegirProducto(catalogo, "Primer producto")];
     const Producto& b = catalogo[elegirProducto(catalogo, "Segundo producto")];
@@ -87,6 +92,7 @@ void comparar(const std::vector<Producto>& catalogo) {
     }
 }
 
+// calcularDescuento y precioConDescuento son funciones inline.
 void aplicarDescuento(const std::vector<Producto>& catalogo) {
     const Producto& producto = catalogo[elegirProducto(catalogo, "Producto")];
     double porcentaje = leerReal("Porcentaje de descuento (0-100): ");
@@ -96,24 +102,28 @@ void aplicarDescuento(const std::vector<Producto>& catalogo) {
               << "Precio final:    S/ " << precioConDescuento(producto.getPrecio(), porcentaje) << '\n';
 }
 
+// filtrarPorPrecio usa una lambda que captura el rango ingresado.
 void filtrar(const std::vector<Producto>& catalogo) {
     double minimo = leerReal("Precio mínimo: S/ ");
     double maximo = leerReal("Precio máximo: S/ ");
     listar(filtrarPorPrecio(catalogo, minimo, maximo));  // lambda
 }
 
+// a + b usa el operator+ sobrecargado y devuelve un Producto nuevo: el paquete.
 void combinar(const std::vector<Producto>& catalogo) {
     const Producto& a = catalogo[elegirProducto(catalogo, "Primer producto")];
     const Producto& b = catalogo[elegirProducto(catalogo, "Segundo producto")];
     std::cout << "Paquete: " << (a + b) << '\n';  // operator+
 }
 
+// Se ordena una copia con std::sort y una lambda; el catálogo original no cambia.
 void ordenar(const std::vector<Producto>& catalogo) {
     std::vector<Producto> copia = catalogo;  // el catálogo original no cambia
     ordenarPorPrecio(copia);                 // lambda en std::sort
     listar(copia);
 }
 
+// setPrecio no es const: es la única opción que modifica un producto del catálogo.
 void cambiarPrecio(std::vector<Producto>& catalogo) {
     Producto& producto = catalogo[elegirProducto(catalogo, "Producto")];
     if (producto.setPrecio(leerReal("Nuevo precio: S/ "))) {  // función no const
@@ -139,6 +149,7 @@ void mostrarMenu() {
 
 }  // namespace
 
+// Menú principal: cada opción aplica uno de los conceptos de la práctica.
 int main() {
     std::vector<Producto> catalogo = catalogoInicial();
     try {
